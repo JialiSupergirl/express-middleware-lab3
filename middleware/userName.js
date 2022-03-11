@@ -1,11 +1,14 @@
 const express = require('express');
 
 
-let = (req, res, next) => {
+let userName = (req, res, next) => {
 
-    //console.log(req);
-    req.username = req.query.uname.trim().toLowerCase();
-    // req.bob = "bob";
+    if (req.query.uname) {
+        req.username = req.query.uname.trim().toLowerCase();
+    } else {
+        req.username = null;
+    }
+
     next();
 
 };
